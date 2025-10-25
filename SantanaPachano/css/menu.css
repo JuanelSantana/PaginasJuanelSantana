@@ -1,0 +1,255 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3vw;
+    padding-right: 4vw;
+    height: 15vh;
+    background: transparent;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.HeaderAbajo {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.HeaderOculto {
+    transform: translateY(-100%);
+}
+
+.HeaderVisible {
+    transform: translateY(0);
+}
+
+.HeaderTransparente {
+    background-color: transparent;
+}
+
+.HeaderAbajo:not(.HeaderTransparente) {
+    background-color: var(--primary-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo p {
+    font-size: 2em;
+    line-height: 20px;
+    color: white;
+}
+
+.logo span {
+    font-size: .6em;
+}
+
+.logo img {
+    width: 110px;
+    position: relative;
+    z-index: 10;
+}
+
+header .nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+header .nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: ease 300ms;
+    border-top: 1px transparent dotted;
+    border-bottom: 1px transparent dotted;
+}
+
+header .nav a:hover {
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    padding: 10px 0px;
+}
+
+header .nav .contact a {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+header .nav .contact a:hover {
+    background-color: white;
+    color: #021526;
+}
+
+.bars__menu {
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    transform: translate(-30%, -5%);
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bars__menu span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #fff;
+    margin-top: 10px;
+    transform-origin: 0px 100%;
+    transition: all 300ms;
+}
+
+.activeLine1__bars-menu {
+    transform: rotate(45deg) translate(-1px, 1px);
+}
+
+.activeLine2__bars-menu {
+    opacity: 0;
+    margin-left: -30px;
+}
+
+.activeLine3__bars-menu {
+    transform: rotate(-45deg) translate(-1px, 1px);
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+
+
+    .logo p {
+        display: none;
+    }
+
+    header .nav {
+        transition: all 300ms;
+        display: block;
+        position: fixed;
+        text-align: left;
+        top: 0;
+        height: 100vh;
+        left: -100%;
+        width: 60vw;
+        max-width: 280px;
+        padding: 20px;
+        background-color: var(--primary-color);
+        box-shadow: 8px 0 24px rgba(0, 0, 0, 0.25);
+        overflow-y: auto;
+        z-index: 1001;
+    }
+
+    header .menu {
+        left: 0%;
+    }
+
+    /* Overlay de fondo cuando el menú está abierto */
+    header .nav::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 300ms;
+    }
+
+    header .menu::before {
+        opacity: 1;
+    }
+
+    header .nav ul {
+        display: block;
+        margin-top: 12vh;
+        padding: 0;
+    }
+
+
+
+    header .nav ul li,
+    header .nav ul a {
+        margin-bottom: 1.5vh;
+        padding: 1rem 0;
+        border: none;
+        color: white;
+        font-size: 1.1em;
+        max-width: 100%;
+        display: block;
+        width: 100%;
+    }
+
+    header .nav ul li {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header .nav ul .first_li {
+        border-top: none;
+        margin-top: 2vh;
+        padding-top: 0;
+    }
+
+    header .nav a:hover {
+        border-top: 0;
+        border-bottom: 0;
+        margin-left: 0;
+        color: var(--accent-color);
+        padding: 1rem 0;
+    }
+
+
+    .bars__menu {
+        display: block;
+    }
+}
+
+/* Media query adicional para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    header .nav {
+        width: 70vw;
+        max-width: 250px;
+        padding: 16px;
+    }
+
+    header .nav ul {
+        margin-top: 10vh;
+    }
+
+    header .nav ul li,
+    header .nav ul a {
+        font-size: 1em;
+        padding: 0.8rem 0;
+        margin-bottom: 1vh;
+    }
+}
+
+/* Media query para pantallas extra pequeñas */
+@media screen and (max-width: 360px) {
+    header .nav {
+        width: 80vw;
+        max-width: 220px;
+        padding: 12px;
+    }
+}

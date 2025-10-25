@@ -1,0 +1,800 @@
+/* Variables CSS */
+:root {
+    --primary-color: #0A1E33;
+    /* azul profundo corporativo */
+    --secondary-color: #173A5E;
+    /* azul medio sobrio */
+    --accent-color: #B9935A;
+    /* dorado cálido profesional */
+    --text-color: #D4D2D5;
+    --text-color-claro: #d4d2d5a8;
+    --text-color-alt: #0A1E33;
+    --font-family-main: 'Times New Roman', Times, serif;
+    --font-family-alt: 'Roboto', sans-serif;
+    --gap: 20px;
+    --border-radius: 10px;
+    --icon-color: var(--accent-color);
+    --step-title: clamp(1.5rem, 2.5vw, 2.25rem);
+    --step-body: clamp(0.95rem, 1.2vw, 1.125rem);
+}
+
+/* General Reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family-main);
+}
+
+p {
+    font-family: var(--font-family-alt);
+    font-size: var(--step-body);
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #f5f6f8;
+}
+
+/* Sección Info */
+#info {
+    padding: 3vw;
+    text-align: center;
+}
+
+#info .first-info {
+    max-width: 900px;
+    margin: 8vh auto 10vh auto;
+}
+
+#info .first-info .title,
+#info .second-info .title {
+    font-size: var(--step-title);
+    color: var(--primary-color);
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#info .first-info .parra,
+#info .second-info .parra {
+    font-size: var(--step-body);
+}
+
+#info .second-info .content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    gap: 4vw;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#info .second-info .content button {
+    padding: 12px 20px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin-top: 20px;
+    width: auto;
+    min-width: 180px;
+    font-size: var(--step-body);
+}
+
+#info .second-info .content .check-list {
+    width: 100%;
+    padding: 3vh 0;
+    display: grid;
+    gap: 12px 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#info .second-info .content .check-list i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+#info .second-info .content img {
+    width: 40%;
+    max-width: 520px;
+    height: auto;
+}
+
+#info .second-info .miniicontent {
+    width: 60%;
+}
+
+@media (max-width: 1024px) {
+    #info .second-info .content img {
+        width: 45%;
+    }
+
+    #info .second-info .miniicontent {
+        width: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    #info .first-info {
+        margin: 6vh auto;
+        padding: 0 4vw;
+    }
+
+    #info .second-info .content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 4vw;
+    }
+
+    #info .second-info .content img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #info .second-info .miniicontent {
+        width: 100%;
+    }
+
+    #info .second-info .content .check-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sección Servicios */
+#servicios {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 3vw;
+    text-align: center;
+}
+
+#servicios h3 {
+    font-size: var(--step-title);
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+.services-swiper {
+    width: 100%;
+    padding: 2vh 0;
+}
+
+.services-wrapper {
+    padding: 20px 0 60px 0;
+}
+
+.service-card {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+}
+
+.card-content {
+    /* Make cards fully solid and more contrasted */
+    background: #ffffff;
+    /* solid white cards */
+    border: 1px solid rgba(10, 30, 51, 0.06);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--primary-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    /* fully opaque */
+    /* Sombra que sigue el border-radius */
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Efecto para slide activa */
+.swiper-slide-active .card-content {
+    transform: translateY(0) scale(1.02);
+    opacity: 1;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+    border-color: rgba(10, 30, 51, 0.08);
+}
+
+/* Sombras personalizadas para slides no activas */
+.swiper-slide:not(.swiper-slide-active) .card-content {
+    /* Keep non-active slides visible and solid (no transparency) */
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+    opacity: 1;
+}
+
+/* Efecto de profundidad para slides laterales */
+.swiper-slide-prev .card-content,
+.swiper-slide-next .card-content {
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
+    opacity: 0.8;
+}
+
+/* Efectos hover removidos */
+
+.card-content i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    /* dark blue icon */
+    margin-bottom: 20px;
+}
+
+.card-content h4 {
+    font-size: 1.4em;
+    margin: 15px 0;
+    font-weight: bold;
+    color: var(--primary-color);
+    /* dark blue heading */
+}
+
+.card-content p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #12304a;
+    /* darker blue for body copy */
+    flex-grow: 1;
+}
+
+/* Controles de navegación del swiper de servicios */
+.services-button-next,
+.services-button-prev {
+    color: var(--accent-color) !important;
+    background: transparent;
+    /* no solid round background */
+    border-radius: 6px;
+    /* subtle rounding if desired */
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    margin-top: 0;
+    transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.services-button-next:hover,
+.services-button-prev:hover {
+    /* Only change color and slightly scale the button */
+    color: var(--primary-color) !important;
+    transform: scale(1.08);
+    background-color: var(--accent-color);
+    /* only the button background */
+}
+
+.services-pagination {
+    bottom: 20px !important;
+}
+
+.services-pagination .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.services-pagination .swiper-pagination-bullet-active {
+    background: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Efectos simplificados */
+.service-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Animaciones simplificadas */
+.service-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Force override inline styles from Swiper so cards stay solid and the active one is prominent */
+.service-card .card-content {
+    opacity: 1 !important;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.swiper-slide-active .card-content {
+    z-index: 5 !important;
+    transform: translateY(0) scale(1.05) !important;
+}
+
+.service-card[aria-hidden="true"] .card-content {
+    /* slightly de-emphasize hidden slides but keep them solid */
+    opacity: 0.95 !important;
+}
+
+/* Visual focus when a card is selected (aria-selected) */
+.card-content[aria-selected="true"] {
+    box-shadow: 0 8px 24px rgba(10, 30, 51, 0.12);
+    transform: translateY(0) scale(1.05) !important;
+}
+
+/* Desktop: center & narrow services area, place nav buttons outside, and add side fade masks */
+@media (min-width: 1024px) {
+    .services-swiper {
+        max-width: 1100px;
+        /* width of visible area */
+        margin: 0 auto;
+        position: relative;
+        /* for absolutely positioned nav and masks */
+        overflow: visible;
+    }
+
+    /* clip slides inside the inner wrapper so cards don't show past the fade masks */
+    .services-swiper .services-wrapper {
+        overflow: hidden;
+    }
+
+    /* place nav buttons just outside the container */
+    .services-swiper .services-button-prev,
+    .services-swiper .services-button-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 40;
+    }
+
+    .services-swiper .services-button-prev {
+        left: -56px;
+        /* adjust as needed */
+    }
+
+    .services-swiper .services-button-next {
+        right: -56px;
+        /* adjust as needed */
+    }
+
+    /* Side fade masks so end slides visually disappear gradually */
+    .services-swiper::before,
+    .services-swiper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        pointer-events: none;
+        z-index: 35;
+    }
+
+    .services-swiper::before {
+        left: 0;
+        background: linear-gradient(to right, var(--primary-color) 0%, rgba(10, 30, 51, 0) 100%);
+    }
+
+    .services-swiper::after {
+        right: 0;
+        background: linear-gradient(to left, var(--primary-color) 0%, rgba(10, 30, 51, 0) 100%);
+    }
+}
+
+/* Sección Contacto */
+#contacto,
+.contacto {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 3vw;
+    text-align: left;
+    background: linear-gradient(175deg, #021526 40%, #04233d74 100%), url(../img/fondo3.png);
+}
+
+#contacto h3,
+.contacto h3 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.contacto p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: var(--text-color-claro);
+}
+
+.contacto button {
+    padding: 20px;
+    border: 1px solid #D4D2D5;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin-top: 50px;
+    width: auto;
+    min-width: 200px;
+    max-width: 300px;
+    font-size: 1.5em;
+    transition: 0.3s ease;
+}
+
+.contacto button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+footer .caja1 {
+    border-bottom: #2422418a 1px solid;
+    padding: 3vh 1vw;
+    width: 90%;
+    margin: 0 auto;
+}
+
+footer .caja1 p {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+footer .caja1 .logo {
+    display: flex;
+    align-items: center;
+
+}
+
+footer .caja1 .logo p {
+    font-size: 2em;
+    line-height: 20px;
+    color: white;
+}
+
+footer .caja1 .logo span {
+    font-size: .6em;
+}
+
+footer .caja1 .logo img {
+    width: 110px;
+    margin-right: -30px;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1vh 3vw;
+}
+
+.caja2,
+.caja3,
+.caja4 {
+    padding: 20px;
+    color: var(--text-color);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.caja2 h3,
+.caja3 h3,
+.caja4 h3 {
+    font-size: 1.5em;
+    margin: 5px 0 15px 0;
+    color: white;
+    text-align: center;
+}
+
+.caja2 a,
+.caja3 a,
+.caja4 a {
+    text-decoration: none;
+    color: var(--text-color-claro);
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.caja2 a:hover,
+.caja3 a:hover,
+.caja4 a:hover {
+    color: var(--text-color-claro);
+    transition: 0.3s ease;
+}
+
+.caja2 p,
+.caja3 p,
+.caja4 p {
+    margin: 15px 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.caja2 p:hover,
+.caja3 p:hover,
+.caja4 p:hover {
+    color: var(--text-color-claro);
+    transition: 0.3s ease;
+}
+
+.caja2 span,
+.caja3 span,
+.caja4 span {
+    color: var(--text-color-claro);
+}
+
+.caja2 i,
+.caja3 i,
+.caja4 i {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.caja2 div,
+.caja3 div,
+.caja4 div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.instagram {
+    background-color: #021526;
+    color: var(--secondary-color);
+    margin-right: -2px;
+}
+
+.ig {
+    color: white;
+}
+
+footer .copy {
+    padding: 20px;
+    color: var(--text-color-claro);
+    justify-content: space-around;
+    display: flex;
+    background-color: var(--secondary-color);
+}
+
+footer .copy a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+/* Responsividad servicios */
+@media (max-width: 1024px) {
+    .card-content {
+        padding: 25px 15px;
+    }
+
+    .card-content i {
+        font-size: 2.2em;
+    }
+
+    .card-content h4 {
+        font-size: 1.3em;
+    }
+
+    .card-content p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-swiper {
+        padding: 1vh 0;
+    }
+
+    .card-content {
+        padding: 20px 15px;
+    }
+
+    .card-content i {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .card-content h4 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .card-content p {
+        font-size: 0.85em;
+        line-height: 1.5;
+    }
+
+    .services-button-next,
+    .services-button-prev {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-content {
+        padding: 15px 12px;
+    }
+
+    .card-content i {
+        font-size: 1.8em;
+        margin-bottom: 12px;
+    }
+
+    .card-content h4 {
+        font-size: 1.1em;
+        margin: 8px 0;
+    }
+
+    .card-content p {
+        font-size: 0.8em;
+        line-height: 1.4;
+    }
+
+    .services-button-next,
+    .services-button-prev {
+        display: none;
+    }
+
+    .services-pagination {
+        bottom: 10px !important;
+    }
+
+    .services-pagination .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+    }
+}
+
+/* Responsividad del footer */
+@media (max-width: 1024px) {
+    footer .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    footer .caja1 {
+        width: 95%;
+        padding: 2vh 2vw;
+    }
+
+    footer .caja1 .logo img {
+        width: 90px;
+        margin-right: -20px;
+    }
+
+    footer .caja1 .logo p {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .container {
+        grid-template-columns: 1fr;
+        padding: 2vh 4vw;
+        gap: 15px;
+    }
+
+    .caja2,
+    .caja3,
+    .caja4 {
+        padding: 15px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .caja2 h3,
+    .caja3 h3,
+    .caja4 h3 {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+
+    .caja2 a,
+    .caja3 a,
+    .caja4 a {
+        font-size: 1.1em;
+        margin: 10px 0;
+    }
+
+    .caja2 div,
+    .caja3 div,
+    .caja4 div {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .caja2 i,
+    .caja3 i,
+    .caja4 i {
+        padding: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer .caja1 {
+        width: 100%;
+        padding: 1.5vh 4vw;
+        text-align: center;
+    }
+
+    footer .caja1 .logo {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    footer .caja1 .logo img {
+        width: 80px;
+        margin-right: -15px;
+    }
+
+    footer .caja1 .logo p {
+        font-size: 1.6em;
+    }
+
+    footer .caja1 p {
+        text-align: center;
+        margin-left: 0;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        padding: 1vh 2vw;
+    }
+
+    .caja2,
+    .caja3,
+    .caja4 {
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    .caja2 h3,
+    .caja3 h3,
+    .caja4 h3 {
+        font-size: 1.2em;
+    }
+
+    .caja2 a,
+    .caja3 a,
+    .caja4 a {
+        font-size: 1em;
+        margin: 8px 0;
+    }
+
+    footer .copy {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    footer .copy p {
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+
+    .contacto button {
+        width: 100%;
+        max-width: 250px;
+        font-size: 1.2em;
+        padding: 15px;
+        margin-top: 30px;
+    }
+}

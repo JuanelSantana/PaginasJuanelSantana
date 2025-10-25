@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#slider {
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.services-swiper {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.card-list .card-item {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+.card-list .card-item .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-list .card-item .texto {
+    font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+    position: absolute;
+    color: white;
+}
+
+/* Services swiper: ensure service cards are constrained and solid */
+.services-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.services-swiper .swiper-slide {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.service-card {
+    width: 320px;
+    max-width: 90vw;
+    height: 420px;
+    /* taller by default */
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.service-card .card-content {
+    width: 100%;
+    padding: 28px 22px;
+    border-radius: 12px;
+    background: #fff;
+    color: #0A1E33;
+}
+
+.card-list .card-item .first {
+    top: 36vh;
+    left: 10vw;
+    max-width: 40vw;
+}
+
+.card-list .card-item .second {
+    top: 36vh;
+    right: 10vw;
+    max-width: 40vw;
+    text-align: right;
+}
+
+.card-list .card-item .third {
+    top: 36vh;
+    left: 25vw;
+    right: 20vw;
+    max-width: 50vw;
+    text-align: center;
+}
+
+.card-list .card-item .tetxo .title {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+.card-list .card-item .texto .parra {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    padding: 5vh 0 10vh 0;
+}
+
+.card-list .card-item .texto .contact {
+    border-radius: 50px;
+    width: auto;
+    min-width: 180px;
+    height: auto;
+    padding: 12px 20px;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    transition: .3s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card-list .card-item .texto .contact:hover {
+    background-color: white;
+    color: #021526;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    color: rgba(255, 255, 255, 0.581);
+    font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+    opacity: 0.8 !important;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-color) !important;
+    opacity: 1 !important;
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        display: none;
+    }
+
+    .card-list .card-item .first,
+    .card-list .card-item .second,
+    .card-list .card-item .third {
+        top: auto;
+        bottom: 12vh;
+        left: 8vw;
+        right: 8vw;
+        max-width: none;
+        text-align: left;
+    }
+
+    /* Make service cards more square/tall on smaller screens */
+    .service-card {
+        width: 86vw;
+        height: 520px;
+        /* taller and more rectangular for phones */
+    }
+
+    .service-card .card-content {
+        padding: 24px;
+        border-radius: 10px;
+    }
+
+}
