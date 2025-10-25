@@ -2,14 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis páginas — Proyectos</title>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <h1>Pages board</h1>
-    <a href="SantanaPachano/index.html">Santana Pachano & Asociados</a>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">Mis páginas / Proyectos</h1>
+            <p class="site-subtitle">Aquí publico proyectos y sitios como tarjetas. Haz clic en una para abrir el
+                proyecto.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="projects" aria-label="Listado de proyectos">
+            <h2 class="section-title">Proyectos</h2>
+
+            <div class="projects-grid">
+                <!-- Tarjeta reutilizable de proyecto: duplicar el <article> para añadir más proyectos -->
+                <article class="project-card">
+                    <a class="card-link" href="SantanaPachano/index.html" aria-labelledby="proj-santana-title">
+                        <div class="project-img" role="img" aria-label="Logo de Santana Pachano">
+                            <img src="images/captura para portafolio.jpg" alt="Logo Santana Pachano" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="project-tag">Sitio web</span>
+                                <span class="project-date">2025</span>
+                            </div>
+                            <h3 id="proj-santana-title" class="project-title">Santana Pachano & Asociados</h3>
+                            <p class="project-desc">Sitio institucional del despacho. Contiene secciones de servicios,
+                                equipo y contacto. Está listo para ser hospedado como proyecto independiente.</p>
+                        </div>
+                        <div class="project-cta">Ver proyecto →</div>
+                    </a>
+                </article>
+                <!-- Fin de tarjeta -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>Diseñado con una interfaz simple — duplica las cartas para añadir más proyectos.</small>
+        </div>
+    </footer>
+
+    <!-- NOTA: Para añadir más proyectos, copia el <article class="project-card"> y actualiza el href, la imagen y el texto. -->
 </body>
 
 </html>
