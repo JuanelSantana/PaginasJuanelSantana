@@ -388,13 +388,26 @@ body {
 }
 
 /* Sección Contacto */
+
 #contacto,
-.contacto {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 3vw;
-    text-align: left;
+.contact-btn {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+@media (max-width: 850px) {
+    .contact-btn {
+        display: none !important;
+    }
+}
+
+#contacto {
     background: linear-gradient(175deg, #021526 40%, #04233d74 100%), url(../img/fondo3.png);
+    position: relative;
+    z-index: 10;
+    color: #D4D2D5;
+    padding: 20px;
 }
 
 #contacto h3,
@@ -737,15 +750,20 @@ footer .copy a {
     footer .caja1 .logo {
         justify-content: center;
         margin-bottom: 10px;
+        flex-direction: column;
+        align-items: center;
     }
 
     footer .caja1 .logo img {
         width: 80px;
-        margin-right: -15px;
+        margin-right: 0;
+        margin-bottom: 8px;
     }
 
     footer .caja1 .logo p {
         font-size: 1.6em;
+        line-height: 1.2;
+        margin: 0;
     }
 
     footer .caja1 p {
@@ -756,6 +774,10 @@ footer .copy a {
 
     footer .container {
         padding: 1vh 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     .caja2,
@@ -763,6 +785,8 @@ footer .copy a {
     .caja4 {
         padding: 10px;
         margin: 5px 0;
+        text-align: center;
+        align-items: center;
     }
 
     .caja2 h3,
@@ -778,11 +802,22 @@ footer .copy a {
         margin: 8px 0;
     }
 
+    .caja2 div,
+    .caja3 div,
+    .caja4 div {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
     footer .copy {
         flex-direction: column;
         gap: 10px;
         padding: 15px;
         text-align: center;
+        align-items: center;
+        display: flex;
     }
 
     footer .copy p {

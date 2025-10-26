@@ -56,7 +56,7 @@
                                 <h1 class="title">¿Conflictos laborales o familiares?</h1>
                                 <p class="parra">Protegemos sus derechos con compromiso y experiencia. La justicia
                                     empieza con una buena asesoría.</p>
-                                <button class="contact" onclick="location.href='#contacto'">Contáctanos</button>
+                                <button class="contact-btn" data-scroll-contacto>Contáctanos</button>
                             </div>
                         </div>
                         <div class="card-item swiper-slide">
@@ -65,7 +65,7 @@
                                 <h1 class="title">Soluciones legales a su alcance</h1>
                                 <p class="parra">En casos civiles, laborales o de familia, brindamos representación
                                     clara y confiable.</p>
-                                <button class="contact" onclick="location.href='#contacto'">Contáctanos</button>
+                                <button class="contact-btn" data-scroll-contacto>Contáctanos</button>
                             </div>
                         </div>
                         <div class="card-item swiper-slide">
@@ -74,7 +74,7 @@
                                 <h1 class="title">Defendemos lo que le pertenece</h1>
                                 <p class="parra">La protección de sus derechos laborales y personales es nuestra
                                     prioridad.</p>
-                                <button class="contact" onclick="location.href='#contacto'">Contáctanos</button>
+                                <button class="contact-btn" data-scroll-contacto>Contáctanos</button>
                             </div>
                         </div>
 
@@ -112,7 +112,7 @@
                             <p><i class="fa-solid fa-check"></i> Procesos de visa y legalizaciones</p>
                             <p><i class="fa-solid fa-check"></i> Registro y constitución de compañías</p>
                         </div>
-                        <button class="contact" onclick="location.href='#contacto'">Contáctanos</button>
+                        <button class="contact-btn" data-scroll-contacto>Contáctanos</button>
                     </div>
                 </div>
             </div>
@@ -189,49 +189,77 @@
         </section>
     </main>
     <script src="js/services-swiper.js"></script>
-    <footer>
-        <div class="caja1">
-            <div class="logo">
-                <a href="index.html"><img src="img/spwhite.png" alt="Logo Santana Pachano & Asociados"></a>
-                <p>Santana Pachano <br>
-                    <span>& Asociados</span>
-                </p>
-            </div>
-            <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('button[data-scroll-contacto]').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Cerrar menú móvil si está abierto
+                var nav = document.querySelector('.nav');
+                if (nav && nav.classList.contains('menu')) {
+                    nav.classList.remove('menu');
+                    var line1 = document.querySelector('.line1__bars-menu');
+                    var line2 = document.querySelector('.line2__bars-menu');
+                    var line3 = document.querySelector('.line3__bars-menu');
+                    if (line1) line1.classList.remove('activeLine1__bars-menu');
+                    if (line2) line2.classList.remove('activeLine2__bars-menu');
+                    if (line3) line3.classList.remove('activeLine3__bars-menu');
+                }
+                var contacto = document.getElementById('contacto');
+                if (contacto) {
+                    contacto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    contacto.focus && contacto.focus();
+                }
+            });
+        });
+    });
+</script>
+<footer>
+    <div class="caja1">
+        <div class="logo">
+            <a href="index.html"><img src="img/spwhite.png" alt="Logo Santana Pachano & Asociados"></a>
+            <p>Santana Pachano <br>
+                <span>& Asociados</span>
+            </p>
         </div>
-        <div class="container">
-            <div class="caja2">
-                <h3>Enlaces útiles</h3>
-                <a href="#">Derechos laborales</a>
-                <a href="#">Preguntas frecuentes</a>
-                <a href="#">Glosario legal</a>
+        <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
+    </div>
+    <div class="container">
+        <div class="caja2">
+            <h3>Enlaces útiles</h3>
+            <a href="#">Derechos laborales</a>
+            <a href="#">Preguntas frecuentes</a>
+            <a href="#">Glosario legal</a>
+        </div>
+        <div class="caja3">
+            <h3>En las redes</h3>
+            <a href="https://www.instagram.com/lic.juansantana10/" class="ig"><i
+                    class="fa-brands fa-instagram"></i>Instagram</a>
+            <a href="https://walink.co/580ec8" class="whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+        </div>
+        <div class="caja4">
+            <h3>Ponte en contacto</h3>
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <p><span>Dirección</span>Apolinar Perdomo No. 16 <br> Neiba Provincia Bahoruco</p>
             </div>
-            <div class="caja3">
-                <h3>En las redes</h3>
-                <a href="#" class="ig"><i class="fa-brands fa-instagram"></i>Instagram</a>
-                <a href="#" clas></a>
+            <div>
+                <i class="fa-solid fa-phone"></i>
+                <p><span>Teléfono</span> 809-555-5555</p>
             </div>
-            <div class="caja4">
-                <h3>Ponte en contacto</h3>
-                <div>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p><span>Dirección</span> Calle 1, No. 2, Neyba</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-phone"></i>
-                    <p><span>Teléfono</span> 809-555-5555</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-envelope"></i>
-                    <p><span>Email</span> pachanoflow@hotmail.com</p>
-                </div>
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+                <p><span>Email</span>Juridicosantana10@hotmail.com</p>
             </div>
         </div>
-        <div class="copy">
-            <p>Creado por <a href="">Juanel Santana</a></p>
-            <p>Copyright © 2025 Santana Pachano & Asociados. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    </div>
+    <div class="copy">
+        <p>Creado por <a href="">Juanel Santana</a></p>
+        <p>Copyright © 2025 Santana Pachano & Asociados. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 </body>
 

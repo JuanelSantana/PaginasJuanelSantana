@@ -4,35 +4,43 @@ const servicesSwiper = new Swiper('.services-wrapper', {
     loop: true,
     grabCursor: true,
     spaceBetween: 0,
-    speed: 1000,
+    speed: 900,
     centeredSlides: true,
 
-    // Configuración responsiva
+    // Configuración responsiva mejorada para móvil
     breakpoints: {
         320: {
-            slidesPerView: 1,
+            slidesPerView: 1.1,
             spaceBetween: 0,
             centeredSlides: true,
+            loop: true,
+            allowTouchMove: true,
         },
         480: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 0,
             centeredSlides: true,
+            loop: true,
+            allowTouchMove: true,
         },
         768: {
             slidesPerView: 1.5,
             spaceBetween: 0,
             centeredSlides: true,
+            loop: true,
+            allowTouchMove: true,
         },
         1024: {
             slidesPerView: 2.5,
             spaceBetween: 0,
             centeredSlides: true,
+            loop: true,
         },
         1200: {
             slidesPerView: 3,
             spaceBetween: 0,
             centeredSlides: true,
+            loop: true,
         }
     },
 
@@ -47,10 +55,7 @@ const servicesSwiper = new Swiper('.services-wrapper', {
     },
 
     // Navegación
-    navigation: {
-        nextEl: '.services-button-next',
-        prevEl: '.services-button-prev',
-    },
+    navigation: false,
 
     // Autoplay más dinámico
     autoplay: {
@@ -77,7 +82,7 @@ const servicesSwiper = new Swiper('.services-wrapper', {
     },
 
     // Touch mejorado
-    touchRatio: 1,
+    touchRatio: 1.2,
     touchAngle: 45,
     simulateTouch: true,
     allowTouchMove: true,
@@ -96,7 +101,6 @@ const servicesSwiper = new Swiper('.services-wrapper', {
     // Eventos avanzados
     on: {
         init: function () {
-            console.log('Swiper de servicios interactivo inicializado');
             // Añadir clase inicial a la primera slide
             this.slides[this.activeIndex].classList.add('swiper-slide-active');
         },
@@ -106,10 +110,8 @@ const servicesSwiper = new Swiper('.services-wrapper', {
             this.slides.forEach(slide => {
                 slide.classList.remove('swiper-slide-active');
             });
-
             // Añadir clase activa a la slide actual
             this.slides[this.activeIndex].classList.add('swiper-slide-active');
-
             // Efecto de parallax en el contenido
             const activeSlide = this.slides[this.activeIndex];
             const cardContent = activeSlide.querySelector('.card-content');
@@ -164,21 +166,4 @@ document.querySelectorAll('.service-card').forEach((card, index) => {
     });
 });
 
-// Move navigation buttons out of the inner swiper wrapper so slides can be clipped
-// while buttons remain visible outside the masked area.
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-        const container = document.querySelector('.services-swiper');
-        if (!container) return;
-        const inner = container.querySelector('.services-wrapper');
-        if (!inner) return;
-        const next = inner.querySelector('.services-button-next');
-        const prev = inner.querySelector('.services-button-prev');
-        // Append to container (becomes sibling of inner) so clipping on inner won't hide them
-        if (next) container.appendChild(next);
-        if (prev) container.appendChild(prev);
-    } catch (e) {
-        // silent
-        console.warn('Could not move nav buttons:', e);
-    }
-});
+
