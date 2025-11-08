@@ -16,7 +16,7 @@ header {
     padding-right: 4vw;
     height: 15vh;
     background: transparent;
-    z-index: 2;
+    z-index: 99999;
     transition: all 0.5s ease;
 }
 

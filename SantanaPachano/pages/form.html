@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contáctanos</title>
+    <link rel="shortcut icon" type="image/png" href="../img/spwhite.png">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        body {
-            background-color: #173A5E;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/form.css">
+    <link href="fontawesome-free-6.7.2-web/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d981a904f0.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="background-color:#0A1E33;">
     <header class="Header">
         <div class="logo">
             <a href="../index.html"><img src="../img/spwhite.png" alt="Logo Santana Pachano & Asociados"></a>
@@ -43,23 +42,70 @@
 
     <main>
         <section id="formulario">
-            <div class="text-container">
-                <h2>Titulo</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit</p>
-                <div class="caja4">
-                    <h3>Ponte en contacto</h3>
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p><span>Dirección</span>Apolinar Perdomo No. 16 <br> Neiba Provincia Bahoruco</p>
+            <div class="container">
+                <div class="text-container">
+                    <h2 class="title">Titulo</h2>
+                    <p class="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit</p>
+                    <div class="caja4">
+                        <h3>Ponte en contacto</h3>
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p><span>Dirección</span>Apolinar Perdomo No. 16 <br> Neiba Provincia Bahoruco</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-phone"></i>
+                            <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-envelope"></i>
+                            <p><span>Email</span>Juridicosantana10@hotmail.com</p>
+                        </div>
                     </div>
-                    <div>
-                        <i class="fa-solid fa-phone"></i>
-                        <p><span>Teléfono</span> +1 (829) 727-8527</p>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-envelope"></i>
-                        <p><span>Email</span>Juridicosantana10@hotmail.com</p>
-                    </div>
+
+                </div>
+                <div class="form-container">
+                    <form class="formulario">
+                        <h2>Tu información</h2>
+                        <p>Dinos como nos ponemos en contacto contigo.</p>
+                        <hr>
+
+                        <div class="info-grid">
+                            <div class="campo">
+                                <label>Nombre <span>*</span></label>
+                                <input type="text" placeholder="Inserta tu nombre" required>
+                            </div>
+                            <div class="campo">
+                                <label>Apellido <span>*</span></label>
+                                <input type="text" placeholder="Inserta tu apellido" required>
+                            </div>
+                            <div class="campo">
+                                <label>Correo electrónico <span>*</span></label>
+                                <input type="email" placeholder="Escribe tu correo" required>
+                            </div>
+                            <div class="campo">
+                                <label>Consulta <span>*</span></label>
+                                <input type="text" placeholder="¿Cómo podemos ayudarte?" required>
+                            </div>
+                            <div class="campo">
+                                <label>Teléfono</label>
+                                <input type="tel" placeholder="Inserta tu número">
+                            </div>
+                            <div class="campo">
+                                <label>Horario de preferencia</label>
+                                <input type="text" placeholder="Prefieres que te contactemos a...">
+                            </div>
+                        </div>
+
+                        <h3>Detalles</h3>
+                        <p>Déjanos saber cómo podemos ayudarte. Escribe los detalles más relevantes de tu consulta.</p>
+
+                        <div class="campo">
+                            <label>Mensaje / Preguntas <span>*</span></label>
+                            <textarea rows="4" cols="50" placeholder="Escribe aquí tu mensaje." required></textarea>
+                        </div>
+
+                        <button type="submit">Enviar mensaje</button>
+                    </form>
                 </div>
             </div>
         </section>
