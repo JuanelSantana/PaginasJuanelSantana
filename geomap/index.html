@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geo Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+        }
+
+        .controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1000;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <button id="modeBtn">Modo: Ruta</button>
+        <button id="resetBtn">Reiniciar</button>
+        <button id="centerBtn">Centrar</button>
+        <p id="distance">Distancia: 0 km</p>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([18.4861, -69.9312], 13); // Santo Domingo por defecto
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        let points = [];
+        let mode = 'ruta';
+        let userMarker = null;
+        let userCentered = false;
+        let routeLayer = null;
+
+        const userIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/1077/1077012.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32]
+        });
+
+        document.getElementById('modeBtn').onclick = () => {
+            mode = mode === 'ruta' ? 'línea' : 'ruta';
+            document.getElementById('modeBtn').textContent = `Modo: ${mode}`;
+        };
+
+        document.getElementById('resetBtn').onclick = () => {
+            points = [];
+            map.eachLayer(l => { if (l instanceof L.Marker || l instanceof L.Polyline) map.removeLayer(l); });
+            if (userMarker) userMarker.addTo(map);
+            document.getElementById('distance').textContent = 'Distancia: 0 km';
+        };
+
+        document.getElementById('centerBtn').onclick = () => {
+            if (userMarker) map.setView(userMarker.getLatLng(), 15);
+        };
+
+        map.on('click', async e => {
+            const marker = L.marker(e.latlng).addTo(map);
+            marker.on('click', () => { map.removeLayer(marker); points = points.filter(p => p !== marker.getLatLng()); updateRoute(); });
+            points.push(e.latlng);
+            updateRoute();
+        });
+
+        async function updateRoute() {
+            if (routeLayer) map.removeLayer(routeLayer);
+            if (points.length < 2) return;
+
+            if (mode === 'línea') {
+                routeLayer = L.polyline(points, { color: 'blue' }).addTo(map);
+                const dist = totalDistance(points);
+                document.getElementById('distance').textContent = `Distancia: ${dist.toFixed(2)} km`;
+            } else {
+                const coords = points.map(p => `${p.lng},${p.lat}`).join(';');
+                const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
+                const data = await res.json();
+                if (data.routes?.length) {
+                    const route = data.routes[0];
+                    routeLayer = L.geoJSON(route.geometry, { color: 'green' }).addTo(map);
+                    document.getElementById('distance').textContent = `Distancia: ${(route.distance / 1000).toFixed(2)} km`;
+                } else {
+                    alert('Error al calcular ruta.');
+                }
+            }
+        }
+
+        function totalDistance(points) {
+            let dist = 0;
+            for (let i = 1; i < points.length; i++) dist += map.distance(points[i - 1], points[i]);
+            return dist / 1000;
+        }
+
+        // Seguimiento del usuario
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(pos => {
+                const { latitude, longitude } = pos.coords;
+                const latlng = [latitude, longitude];
+                if (!userMarker) userMarker = L.marker(latlng, { icon: userIcon }).addTo(map);
+                else userMarker.setLatLng(latlng);
+                if (!userCentered) {
+                    map.setView(latlng, 15);
+                    userCentered = true;
+                }
+            }, () => alert('Permiso de ubicación denegado.'));
+        }
+    </script>
+</body>
+
+</html>

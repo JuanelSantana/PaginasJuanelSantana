@@ -1,0 +1,119 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="shortcut icon" type="image/png" href="/img/spwhite.png" />
+
+        <!-- Estilos globales (se aplican a todas las páginas) -->
+        <link rel="stylesheet" href="/css/base.css" />
+        <link rel="stylesheet" href="/css/menu.css" />
+
+        <!-- Slot para estilos específicos de cada página -->
+        <slot name="head" />
+
+        <script
+            src="https://kit.fontawesome.com/d981a904f0.js"
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="Header">
+            <div class="logo">
+                <a href="/"
+                    ><img
+                        src="/img/spwhite.png"
+                        alt="Logo Santana Pachano & Asociados"
+                    /></a
+                >
+                <p>Santana Pachano <br /><span>& Asociados</span></p>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="first_li">
+                        <a href="/que-hacemos" class="first_li">¿Qué hacemos?</a
+                        >
+                    </li>
+                    <li><a href="/quienes-somos">¿Quiénes somos?</a></li>
+                    <li class="contact"><a href="/form">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="bars__menu">
+                <span class="line1__bars-menu"></span>
+                <span class="line2__bars-menu"></span>
+                <span class="line3__bars-menu"></span>
+            </div>
+        </header>
+        <script is:inline src="/js/menu.js"></script>
+
+        <main>
+            <slot />
+        </main>
+
+        <footer>
+            <div class="caja1">
+                <div class="logo">
+                    <a href="/"
+                        ><img
+                            src="/img/spwhite.png"
+                            alt="Logo Santana Pachano & Asociados"
+                        /></a
+                    >
+                    <p>Santana Pachano <br /><span>& Asociados</span></p>
+                </div>
+                <p>
+                    Especialistas en Derecho Laboral y Servicios Legales
+                    Integrales
+                </p>
+            </div>
+            <div class="container">
+                <div class="caja2">
+                    <h3>Enlaces útiles</h3>
+                    <a href="#">Derechos laborales</a>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Glosario legal</a>
+                </div>
+                <div class="caja3">
+                    <h3>En las redes</h3>
+                    <a
+                        href="https://www.instagram.com/lic.juansantana10/"
+                        class="ig"
+                        ><i class="fa-brands fa-instagram"></i>Instagram</a
+                    >
+                    <a href="https://walink.co/580ec8" class="whatsapp"
+                        ><i class="fa-brands fa-whatsapp"></i>WhatsApp</a
+                    >
+                </div>
+                <div class="caja4">
+                    <h3>Ponte en contacto</h3>
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>
+                            <span>Dirección</span> Apolinar Perdomo No. 16 <br
+                            /> Neiba Provincia Bahoruco
+                        </p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-phone"></i>
+                        <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-envelope"></i>
+                        <p><span>Email</span> Juridicosantana10@hotmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <p>Creado por <a href="">Juanel Santana</a></p>
+                <p>
+                    Copyright © 2025 Santana Pachano & Asociados. Todos los
+                    derechos reservados.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

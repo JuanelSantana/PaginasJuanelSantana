@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">Proyectos</h1>
+            <p class="site-subtitle">Aquí publico proyectos y sitios como tarjetas. Haz clic en una para abrir el
+                proyecto.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="projects" aria-label="Listado de proyectos">
+            <h2 class="section-title">Proyectos</h2>
+
+            <div class="projects-grid">
+                <!-- Tarjeta reutilizable de proyecto: duplicar el <article> para añadir más proyectos -->
+                <article class="project-card">
+                    <a class="card-link" href="SantanaPachano/dist/">
+                        <div class=" project-img" role="img" aria-label="Logo de Santana Pachano">
+                            <img src="SantanaPachano/img/spblack.png" alt="Logo Santana Pachano" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="project-tag">Sitio web</span>
+                                <span class="project-date">Octubre 2025</span>
+                            </div>
+                            <h3 id="proj-santana-title" class="project-title">Santana Pachano & Asociados</h3>
+                            <p class="project-desc">Sitio de Santana Pachano & Asocs. Contiene secciones de servicios,
+                                equipo y contacto.</p>
+                        </div>
+                        <div class="project-cta">Ver proyecto →</div>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <a class="card-link" href="geomap/index.html" aria-labelledby="proj-geospy-title">
+                        <div class="project-img" role="img" aria-label="Logo de GeoSpy">
+                            <img src="images/WhatsApp Image 2025-11-02 at 10.14.10_e5cf19c5.jpg" alt="Logo GeoSpy" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="project-tag">Sitio web</span>
+                                <span class="project-date">Noviembre 2025</span>
+                            </div>
+                            <h3 id="proj-geospy-title" class="project-title">Geo Tracker</h3>
+                            <p class="project-desc">Aplicación web para el seguimiento de ubicación en tiempo real y
+                                trazamiento de rutas.</p>
+                        </div>
+                        <div class="project-cta">Ver proyecto →</div>
+                    </a>
+                </article>
+                <!-- Fin de tarjeta -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>Todos los derechos reservados. Juanel Santana</small>
+        </div>
+    </footer>
+</body>
+
+</html>
