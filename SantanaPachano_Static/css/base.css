@@ -1,0 +1,310 @@
+/* Variables CSS */
+:root {
+    --primary-color: #0A1E33;
+    /* azul profundo corporativo */
+    --secondary-color: #173A5E;
+    /* azul medio sobrio */
+    --accent-color: #B9935A;
+    /* dorado cálido profesional */
+    --text-color: #D4D2D5;
+    --text-color-claro: #d4d2d5a8;
+    --text-color-alt: #0A1E33;
+    --font-family-main: 'Times New Roman', Times, serif;
+    --font-family-alt: 'Roboto', sans-serif;
+    --gap: 20px;
+    --border-radius: 10px;
+    --icon-color: var(--accent-color);
+    --step-title: clamp(1.5rem, 2.5vw, 2.25rem);
+    --step-body: clamp(0.95rem, 1.2vw, 1.125rem);
+}
+
+/* General Reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family-main);
+}
+
+p {
+    font-family: var(--font-family-alt);
+    font-size: var(--step-body);
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #f5f6f8;
+}
+
+/* Footer - Estilos globales */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+footer .caja1 {
+    border-bottom: #2422418a 1px solid;
+    padding: 3vh 1vw;
+    width: 90%;
+    margin: 0 auto;
+}
+
+footer .caja1 p {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+footer .caja1 .logo {
+    display: flex;
+    align-items: center;
+
+}
+
+footer .caja1 .logo p {
+    font-size: 2em;
+    line-height: 20px;
+    color: white;
+}
+
+footer .caja1 .logo span {
+    font-size: .6em;
+}
+
+footer .caja1 .logo img {
+    width: 110px;
+    margin-right: -30px;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1vh 3vw;
+}
+
+.caja2,
+.caja3,
+.caja4 {
+    padding: 20px;
+    color: var(--text-color);
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.caja2 h3,
+.caja3 h3,
+.caja4 h3 {
+    font-size: 1.5em;
+    margin: 5px 0 15px 0;
+    color: white;
+    text-align: center;
+}
+
+.caja2 a,
+.caja3 a,
+.caja4 a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2em;
+    margin: 15px 0;
+    transition: 0.3s ease;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.caja2 a:hover,
+.caja3 a:hover,
+.caja4 a:hover {
+    color: var(--text-color-claro);
+}
+
+.caja2 p,
+.caja3 p,
+.caja4 p {
+    margin: 15px 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.caja2 p:hover,
+.caja3 p:hover,
+.caja4 p:hover {
+    color: var(--text-color-claro);
+    transition: 0.3s ease;
+}
+
+.caja2 span,
+.caja3 span,
+.caja4 span {
+    color: var(--text-color-claro);
+}
+
+.caja2 i,
+.caja3 i,
+.caja4 i {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.caja2 div,
+.caja3 div,
+.caja4 div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.instagram {
+    background-color: #021526;
+    color: var(--secondary-color);
+    margin-right: -2px;
+}
+
+.ig {
+    color: white;
+}
+
+footer .copy {
+    padding: 20px;
+    color: var(--text-color-claro);
+    justify-content: space-around;
+    display: flex;
+    background-color: var(--secondary-color);
+}
+
+footer .copy a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+/* Responsividad del footer */
+@media (max-width: 1024px) {
+    footer .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    footer .caja1 {
+        width: 95%;
+        padding: 2vh 2vw;
+    }
+
+    footer .caja1 .logo img {
+        width: 90px;
+        margin-right: -20px;
+    }
+
+    footer .caja1 .logo p {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .container {
+        grid-template-columns: 1fr;
+        padding: 2vh 4vw;
+        gap: 15px;
+    }
+
+    .caja2,
+    .caja3,
+    .caja4 {
+        padding: 15px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .caja2 h3,
+    .caja3 h3,
+    .caja4 h3 {
+        font-size: 1.3em;
+        margin: 10px 0;
+    }
+
+    .caja2 a,
+    .caja3 a,
+    .caja4 a {
+        font-size: 1.1em;
+        margin: 10px 0;
+    }
+
+    .caja2 div,
+    .caja3 div,
+    .caja4 div {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .caja2 i,
+    .caja3 i,
+    .caja4 i {
+        padding: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer .caja1 {
+        width: 100%;
+        padding: 1.5vh 4vw;
+        text-align: center;
+    }
+
+    footer .caja1 .logo {
+        justify-content: center;
+        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .caja1 .logo img {
+        width: 80px;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    footer .caja1 .logo p {
+        font-size: 1.6em;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    footer .caja1 p {
+        text-align: center;
+        margin-left: 0;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        padding: 1vh 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .caja2,
+    .caja3,
+    .caja4 {
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .caja2 h3,
+    .caja3 h3,
+    .caja4 h3 {
+        font-size: 1.2em;
+    }
+}

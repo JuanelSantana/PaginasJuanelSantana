@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Qué Hacemos?</title>
+    <link rel="shortcut icon" type="image/png" href="./img/spwhite.png" />
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+
+    <!-- Estilos específicos -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        /* Styling variables inherited from base.css / style.css */
+
+        .section-padding {
+            padding: 6vh 4vw;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: var(--step-title);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .bg-alt {
+            background-color: #f0f2f5;
+            /* Light gray/blue tint instead of white */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background:
+                linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7)),
+                url("");
+            /* Placeholder for hero image */
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 12vh 4vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #ddd;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid - Made smaller and more compact */
+        .services-overview {
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,
+                    minmax(250px, 1fr));
+            /* Smaller cards */
+            gap: 20px;
+            max-width: 1000px;
+            /* Constrain width to keep it compact */
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: #f8f9fa;
+            /* Slight off-white background */
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .service-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-color: var(--accent-color);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 160px;
+            /* Reduced height */
+            object-fit: cover;
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .service-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            /* Smaller font */
+            font-weight: bold;
+        }
+
+        .service-item p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            /* Smaller font */
+        }
+
+        /* Portfolio Section - Centered */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2,
+                    1fr);
+            /* 2 columns for better centering */
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-items: center;
+            /* Center items if they don't fill */
+        }
+
+        .portfolio-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .portfolio-category h3 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            /* Center header */
+        }
+
+        .portfolio-category h3 i {
+            color: var(--accent-color);
+        }
+
+        .portfolio-category ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            /* Keep list left aligned for readability */
+        }
+
+        .portfolio-category li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: var(--text-color-alt);
+            font-size: 0.95rem;
+        }
+
+        .portfolio-category li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Responsive overrides */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-padding {
+                padding: 5vh 4vw;
+            }
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/d981a904f0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="Header">
+        <div class="logo">
+            <a href="./index.html"><img src="./img/spwhite.png" alt="Logo Santana Pachano & Asociados" /></a>
+            <p>Santana Pachano <br /><span>& Asociados</span></p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li class="first_li">
+                    <a href="./que-hacemos.html" class="first_li">¿Qué hacemos?</a>
+                </li>
+                <li><a href="./quienes-somos.html">¿Quiénes somos?</a></li>
+                <li class="contact"><a href="./form.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="bars__menu">
+            <span class="line1__bars-menu"></span>
+            <span class="line2__bars-menu"></span>
+            <span class="line3__bars-menu"></span>
+        </div>
+    </header>
+    <script src="./js/menu.js"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Te llevamos al siguiente nivel</h1>
+                <p>Recuperamos recursos, protegemos tus intereses y ofrecemos soluciones legales a tu medida.</p>
+            </div>
+        </section>
+
+        <!-- Main Services Grid -->
+        <section class="services-overview section-padding">
+            <div class="container">
+                <h2 class="section-title">Nuestra amplia cartera de servicios legales</h2>
+                <div class="services-grid">
+                    <!-- Service 1: Derecho Laboral -->
+                    <div class="service-item">
+                        <img src="./img/derecho_laboral.png" alt="Derecho Laboral" class="service-img" />
+                        <h3>Derecho Laboral</h3>
+                        <p>Defensa de derechos de empleados y empleadores. Asesoría en contratos, despidos, prestaciones
+                            y conflictos laborales.</p>
+                    </div>
+
+                    <!-- Service 2: Casos Civiles -->
+                    <div class="service-item">
+                        <img src="./img/casos_civiles.png" alt="Casos Civiles" class="service-img" />
+                        <h3>Casos Civiles</h3>
+                        <p>Representación en disputas contractuales, reclamaciones de daños, herencias y procesos
+                            judiciales civiles.</p>
+                    </div>
+
+                    <!-- Service 3: Casos de Familia -->
+                    <div class="service-item">
+                        <img src="./img/casos_familia.png" alt="Casos de Familia" class="service-img" />
+                        <h3>Casos de Familia</h3>
+                        <p>Orientación y defensa en temas de custodia, pensión, filiación, divorcio y adopciones.</p>
+                    </div>
+
+                    <!-- Service 4: Actos Notariales -->
+                    <div class="service-item">
+                        <img src="./img/actos_notariales.png" alt="Actos Notariales" class="service-img" />
+                        <h3>Actos Notariales</h3>
+                        <p>Redacción, legalización y protocolización de documentos con validez jurídica garantizada.</p>
+                    </div>
+
+                    <!-- Service 5: Procesos de Visa -->
+                    <div class="service-item">
+                        <img src="./img/procesos_visa.png" alt="Procesos de Visa" class="service-img" />
+                        <h3>Procesos de Visa</h3>
+                        <p>Asistencia legal en procesos migratorios, visados y residencia en la República Dominicana y
+                            el extranjero.</p>
+                    </div>
+
+                    <!-- Service 6: Registro de Compañías -->
+                    <div class="service-item">
+                        <img src="./img/registro_companias.png" alt="Registro de Compañías" class="service-img" />
+                        <h3>Registro de Compañías</h3>
+                        <p>Constitución de sociedades comerciales, redacción de estatutos y cumplimiento legal
+                            empresarial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Detailed Section -->
+        <section class="portfolio-section section-padding bg-alt">
+            <div class="container">
+                <h2 class="section-title">Portafolio de servicios</h2>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-category">
+                        <h3><i class="fa-solid fa-file-invoice-dollar"></i> De Gestión</h3>
+                        <ul>
+                            <li>Investigar cada caso particular, crear perfiles de los deudores para mejores resultados.
+                            </li>
+                            <li>Conciliar acuerdos de pago.</li>
+                            <li>Emitir reportes de resultados.</li>
+                            <li>Dar seguimiento a acuerdos vigentes, con plazos y fechas acordados.</li>
+                        </ul>
+                    </div>
+
+                    <div class="portfolio-category">
+                        <h3><i class="fa-solid fa-briefcase"></i> Administrativas</h3>
+                        <ul>
+                            <li>Revisar y elaborar contratos (redacción, registro, legalización, etc).</li>
+                            <li>Crear documentos constitutivos de empresas, regulación y estructuración legal.</li>
+                            <li>Asesoría legal oportuna ante diversas situaciones empresariales.</li>
+                        </ul>
+                    </div>
+
+                    <div class="portfolio-category">
+                        <h3><i class="fa-solid fa-gavel"></i> Extrajudiciales</h3>
+                        <ul>
+                            <li>Redactar actos, notificar los mismos, intimar, poner mora, procurar acuerdos.</li>
+                            <li>Preparar procesos de embargo, ejecutar embargos de cualquier tipo, incautar vehículos.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="portfolio-category">
+                        <h3><i class="fa-solid fa-scale-balanced"></i> Judiciales</h3>
+                        <ul>
+                            <li>Incoar demandas, querellas, acusaciones y diligencias judiciales.</li>
+                            <li>Responder a demandas y acusaciones contra la Empresa y/o sus representantes.</li>
+                            <li>Recaudar medios probatorios a cargo y a descargo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contacto">
+            <div class="contacto">
+                <h3>Permítenos ayudarte</h3>
+                <p>El primer paso es concertar una cita con uno de nuestros expertos. No esperes más.</p>
+                <button class="contact" onclick="location.href='./form.html'">Contáctanos</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="caja1">
+            <div class="logo">
+                <a href="./index.html"><img src="./img/spwhite.png" alt="Logo Santana Pachano & Asociados" /></a>
+                <p>Santana Pachano <br /><span>& Asociados</span></p>
+            </div>
+            <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
+        </div>
+        <div class="container">
+            <div class="caja2">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Derechos laborales</a>
+                <a href="#">Preguntas frecuentes</a>
+                <a href="#">Glosario legal</a>
+            </div>
+            <div class="caja3">
+                <h3>En las redes</h3>
+                <a href="https://www.instagram.com/lic.juansantana10/" class="ig"><i
+                        class="fa-brands fa-instagram"></i>Instagram</a>
+                <a href="https://walink.co/580ec8" class="whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+            </div>
+            <div class="caja4">
+                <h3>Ponte en contacto</h3>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p><span>Dirección</span> Apolinar Perdomo No. 16 <br /> Neiba Provincia Bahoruco</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <p><span>Email</span> Juridicosantana10@hotmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <p>Creado por <a href="">Juanel Santana</a></p>
+            <p>Copyright © 2025 Santana Pachano & Asociados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

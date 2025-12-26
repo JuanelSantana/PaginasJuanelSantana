@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Quiénes Somos?</title>
+    <link rel="shortcut icon" type="image/png" href="./img/spwhite.png" />
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+
+    <!-- Estilos específicos -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        /* Shared aesthetics */
+        .section-padding {
+            padding: 8vh 4vw;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: var(--step-title);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-alt {
+            background-color: #f0f2f5;
+        }
+
+        /* Hero */
+        .hero-section {
+            background:
+                linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7)),
+                url("./img/fondo2.png");
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 12vh 4vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        /* Intro & Values */
+        .intro-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .intro-content p {
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .value-card p {
+            color: #666;
+        }
+
+        /* Goals Section - Split layout */
+        .goals-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .text-block {
+            flex: 1;
+        }
+
+        .text-block p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-color-alt);
+        }
+
+        .image-block {
+            flex: 1;
+        }
+
+        .goal-img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+            height: auto;
+            min-height: 300px;
+            object-fit: cover;
+        }
+
+        /* Mission & Vision */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .mv-card {
+            background: #fff;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--primary-color);
+        }
+
+        .mv-card:nth-child(2)::before {
+            background: var(--accent-color);
+        }
+
+        .mv-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .mv-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Solutions CTA */
+        .cta-text {
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .contact-btn-large {
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: white;
+            /* Contrast color for button text */
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-btn-large:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .goals-content {
+                flex-direction: column;
+            }
+
+            .image-block {
+                width: 100%;
+            }
+
+            .goal-img {
+                min-height: 200px;
+            }
+
+            .section-padding {
+                padding: 6vh 4vw;
+            }
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/d981a904f0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="Header">
+        <div class="logo">
+            <a href="./index.html"><img src="./img/spwhite.png" alt="Logo Santana Pachano & Asociados" /></a>
+            <p>Santana Pachano <br /><span>& Asociados</span></p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li class="first_li">
+                    <a href="./que-hacemos.html" class="first_li">¿Qué hacemos?</a>
+                </li>
+                <li><a href="./quienes-somos.html">¿Quiénes somos?</a></li>
+                <li class="contact"><a href="./form.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="bars__menu">
+            <span class="line1__bars-menu"></span>
+            <span class="line2__bars-menu"></span>
+            <span class="line3__bars-menu"></span>
+        </div>
+    </header>
+    <script src="./js/menu.js"></script>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Santana Pachano & Asociados</h1>
+                <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
+            </div>
+        </section>
+
+        <!-- Intro & Values Section -->
+        <section class="intro-section section-padding">
+            <div class="container">
+                <h2 class="section-title">¿Quiénes Somos?</h2>
+                <div class="intro-content">
+                    <p>En Santana Pachano & Asociados ofrecemos asesoría integral en derecho civil, laboral y familiar.
+                        Defendemos los derechos de trabajadores, empresas y particulares con ética, responsabilidad y
+                        resultados comprobables.</p>
+                    <p>Nos especializamos en la solución pacífica de conflictos y en la representación eficiente ante
+                        los tribunales de la República Dominicana.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <h3>Ética</h3>
+                        <p>Actuamos con integridad y principios morales en cada caso que asumimos.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <h3>Responsabilidad</h3>
+                        <p>Compromiso total con la defensa de sus derechos e intereses.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fa-solid fa-square-check"></i>
+                        <h3>Resultados</h3>
+                        <p>Trayectoria probada de éxitos y soluciones efectivas para nuestros clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section class="goals-section section-padding bg-alt">
+            <div class="container">
+                <div class="goals-content">
+                    <div class="text-block">
+                        <h2 class="section-title text-left">Su tranquilidad legal, nuestra meta</h2>
+                        <p>Confíe en profesionales que entienden su situación y trabajan por sus derechos con
+                            determinación.</p>
+                        <p>Ya sea en conflictos laborales, disputas civiles o temas de familia, nuestro objetivo
+                            principal es brindarle la seguridad y el respaldo jurídico que necesita para avanzar con
+                            confianza.</p>
+                    </div>
+                    <div class="image-block">
+                        <!-- Placeholder for goal/team image -->
+                        <img src="./img/mujerjusticia.png" alt="Imagen representativa de nuestra meta"
+                            class="goal-img" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision section-padding">
+            <div class="container">
+                <h2 class="section-title">En el corazón de nuestro equipo</h2>
+                <div class="mv-grid">
+                    <div class="mv-card">
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar asesoría y representación legal de excelencia, protegiendo los derechos de nuestros
+                            clientes mediante estrategias efectivas y un trato humano, digno y profesional.</p>
+                    </div>
+                    <div class="mv-card">
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la firma de abogados referente en la República Dominicana por nuestra capacidad para
+                            resolver conflictos complejos con ética, agilidad y altos estándares de calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions/CTA Section -->
+        <section class="solutions-section section-padding bg-alt">
+            <div class="container text-center">
+                <h2 class="section-title">Soluciones al alcance de tus manos</h2>
+                <p class="cta-text">Estamos a la altura y en capacidad de responder a sus intereses. Nada volverá a ser
+                    igual. Consúltenos hoy, marcaremos la diferencia en los resultados.</p>
+                <button class="contact-btn-large" onclick="location.href='./form.html'">Contáctanos</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="caja1">
+            <div class="logo">
+                <a href="./index.html"><img src="./img/spwhite.png" alt="Logo Santana Pachano & Asociados" /></a>
+                <p>Santana Pachano <br /><span>& Asociados</span></p>
+            </div>
+            <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
+        </div>
+        <div class="container">
+            <div class="caja2">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Derechos laborales</a>
+                <a href="#">Preguntas frecuentes</a>
+                <a href="#">Glosario legal</a>
+            </div>
+            <div class="caja3">
+                <h3>En las redes</h3>
+                <a href="https://www.instagram.com/lic.juansantana10/" class="ig"><i
+                        class="fa-brands fa-instagram"></i>Instagram</a>
+                <a href="https://walink.co/580ec8" class="whatsapp"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+            </div>
+            <div class="caja4">
+                <h3>Ponte en contacto</h3>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p><span>Dirección</span> Apolinar Perdomo No. 16 <br /> Neiba Provincia Bahoruco</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <p><span>Email</span> Juridicosantana10@hotmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <p>Creado por <a href="">Juanel Santana</a></p>
+            <p>Copyright © 2025 Santana Pachano & Asociados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
