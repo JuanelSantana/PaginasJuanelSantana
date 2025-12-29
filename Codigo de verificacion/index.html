@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+            margin-bottom: 1.5rem;
+            min-width: 320px;
+            max-width: 90vw;
+            transition: box-shadow 0.2s;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d3a4b;
+            margin-bottom: 1.2rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #b2bec3;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.2s;
+            width: 92%;
+        }
+
+        input[type="text"]:focus {
+            border: 1.5px solid #66a6ff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 0.7rem;
+            background: linear-gradient(90deg, #66a6ff 0%, #89f7fe 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(90deg, #89f7fe 0%, #66a6ff 100%);
+            transition: background 0.2s;
+        }
+
+        .success {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+
+    <div class="form-container" id="registroContainer">
+        <h2>Registro</h2>
+        <form action="https://hook.us2.make.com/1atn3mdkxe9rc9h6cnfhqjyda5k159nn?action=registrar" method="post"
+            id="registroForm" onsubmit="return guardarCorreo(event)">
+            <input type="text" id="correo" name="correo" placeholder="Correo electrónico" required>
+            <input type="submit" value="Enviar">
+        </form>
+        <div id="registroMsg"></div>
+    </div>
+    <div class="form-container" id="verificacionContainer" style="display:none;">
+        <h2>Verificación</h2>
+        <form action="https://hook.us2.make.com/1atn3mdkxe9rc9h6cnfhqjyda5k159nn?action=validar" method="post"
+            id="verificacionForm">
+            <input type="text" id="otp" name="codigo" placeholder="Código de verificación" required>
+            <input type="submit" value="Verificar">
+        </form>
+        <div id="verificacionMsg"></div>
+    </div>
+    <script>
+
+        function guardarCorreo(event) {
+            if (event) event.preventDefault();
+            const correo = document.querySelector('input[name="correo"]').value;
+            localStorage.setItem('correo', correo);
+
+            const form = document.getElementById('registroForm');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    document.getElementById('registroMsg').innerHTML = '<div class="success">Correo enviado correctamente. Ingresa el código de verificación.</div>';
+                    document.getElementById('registroContainer').style.display = 'none';
+                    document.getElementById('verificacionContainer').style.display = 'block';
+                })
+                .catch(error => {
+                    document.getElementById('registroMsg').innerHTML = '<div class="error">Error al enviar el correo.</div>';
+                });
+            // No recargar ni redireccionar
+            return false;
+        }
+
+        document.getElementById('verificacionForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const codigo = document.getElementById('otp').value;
+            const correo = localStorage.getItem('correo');
+
+            const formData = new FormData();
+            formData.append('correo', correo);
+            formData.append('codigo', codigo);
+
+            fetch('https://hook.us2.make.com/1atn3mdkxe9rc9h6cnfhqjyda5k159nn?action=validar', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "ok") {
+                        document.getElementById('verificacionMsg').innerHTML = `<div class="success">${data.mensaje || 'Código verificado con éxito.'}</div>`;
+                        setTimeout(() => {
+                            window.location.href = "homepage.html";
+                        }, 1200);
+                    } else {
+                        document.getElementById('verificacionMsg').innerHTML = `<div class="error">${data.mensaje || 'Código incorrecto.'}</div>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('verificacionMsg').innerHTML = '<div class="error">Error al verificar el código.</div>';
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
