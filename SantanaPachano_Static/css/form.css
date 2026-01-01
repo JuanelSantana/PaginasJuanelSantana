@@ -85,3 +85,33 @@ button {
 button:hover {
     background: #2563eb;
 }
+
+@media (max-width: 768px) {
+    .text-container {
+        display: none;
+    }
+
+    .form-container {
+        margin-top: 20vh;
+        /* Push down below fixed header */
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .formulario {
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        /* Stack columns on mobile */
+        gap: 15px;
+    }
+
+    button {
+        width: 100%;
+        /* Full width button on mobile */
+    }
+}
