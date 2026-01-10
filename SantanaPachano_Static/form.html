@@ -31,6 +31,8 @@
                 </li>
                 <li><a href="./quienes-somos.html">¿Quiénes somos?</a></li>
                 <li class="contact"><a href="./form.html">Contacto</a></li>
+                <li class="mobile-whatsapp"><a href="https://walink.co/580ec8" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
             </ul>
         </nav>
         <div class="bars__menu">
@@ -45,8 +47,13 @@
         <section id="formulario">
             <div class="container">
                 <div class="text-container">
-                    <h2 class="title">Titulo</h2>
-                    <p class="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit</p>
+                    <h2 class="title">¿Necesitas Asesoría Legal?</h2>
+                    <p class="parra">Contáctanos directamente o llena el formulario.</p>
+
+                    <a href="https://walink.co/580ec8" class="whatsapp-btn" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Chat en WhatsApp
+                    </a>
+
                     <div class="caja4">
                         <h3>Ponte en contacto</h3>
                         <div>
@@ -64,7 +71,7 @@
                     </div>
                 </div>
                 <div class="form-container">
-                    <form class="formulario">
+                    <form class="formulario" action="https://formspree.io/f/xdaanwog" method="POST">
                         <h2>Tu información</h2>
                         <p>Dinos como nos ponemos en contacto contigo.</p>
                         <hr />
@@ -72,27 +79,27 @@
                         <div class="info-grid">
                             <div class="campo">
                                 <label>Nombre <span>*</span></label>
-                                <input type="text" placeholder="Inserta tu nombre" required />
+                                <input type="text" name="nombre" placeholder="Inserta tu nombre" required />
                             </div>
                             <div class="campo">
                                 <label>Apellido <span>*</span></label>
-                                <input type="text" placeholder="Inserta tu apellido" required />
+                                <input type="text" name="apellido" placeholder="Inserta tu apellido" required />
                             </div>
                             <div class="campo">
                                 <label>Correo electrónico <span>*</span></label>
-                                <input type="email" placeholder="Escribe tu correo" required />
+                                <input type="email" name="email" placeholder="Escribe tu correo" required />
                             </div>
                             <div class="campo">
                                 <label>Consulta <span>*</span></label>
-                                <input type="text" placeholder="¿Cómo podemos ayudarte?" required />
+                                <input type="text" name="asunto" placeholder="¿Cómo podemos ayudarte?" required />
                             </div>
                             <div class="campo">
                                 <label>Teléfono</label>
-                                <input type="tel" placeholder="Inserta tu número" />
+                                <input type="tel" name="telefono" placeholder="Inserta tu número" />
                             </div>
                             <div class="campo">
                                 <label>Horario de preferencia</label>
-                                <input type="text" placeholder="Prefieres que te contactemos a..." />
+                                <input type="text" name="horario" placeholder="Prefieres que te contactemos a..." />
                             </div>
                         </div>
 
@@ -101,7 +108,8 @@
 
                         <div class="campo">
                             <label>Mensaje / Preguntas <span>*</span></label>
-                            <textarea rows="4" cols="50" placeholder="Escribe aquí tu mensaje." required></textarea>
+                            <textarea name="mensaje" rows="4" cols="50" placeholder="Escribe aquí tu mensaje."
+                                required></textarea>
                         </div>
 
                         <button type="submit">Enviar mensaje</button>

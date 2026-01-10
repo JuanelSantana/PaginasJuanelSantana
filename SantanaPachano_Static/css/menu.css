@@ -134,6 +134,11 @@ header .nav .contact a:hover {
 
 
 
+/* Mobile WhatsApp Button (Hidden on Desktop) */
+.mobile-whatsapp {
+    display: none;
+}
+
 @media screen and (max-width: 850px) {
 
 
@@ -214,6 +219,35 @@ header .nav .contact a:hover {
         margin-left: 0;
         color: var(--accent-color);
         padding: 1rem 0;
+    }
+
+    /* Mobile WhatsApp Button Styling */
+    header .nav ul .mobile-whatsapp {
+        margin-top: 2rem;
+        border-top: none;
+    }
+
+    header .nav ul .mobile-whatsapp a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+        border-radius: 50px;
+        padding: 12px 20px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    header .nav ul .mobile-whatsapp a:hover {
+        background-color: var(--accent-color);
+        color: white;
+        border-color: var(--accent-color);
     }
 
 
