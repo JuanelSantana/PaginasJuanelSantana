@@ -9,8 +9,8 @@
     --text-color: #D4D2D5;
     --text-color-claro: #d4d2d5a8;
     --text-color-alt: #0A1E33;
-    --font-family-main: 'Times New Roman', Times, serif;
-    --font-family-alt: 'Roboto', sans-serif;
+    --font-family-main: 'Playfair Display', serif;
+    --font-family-alt: 'Inter', sans-serif;
     --gap: 20px;
     --border-radius: 10px;
     --icon-color: var(--accent-color);

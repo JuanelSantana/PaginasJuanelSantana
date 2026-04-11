@@ -4,8 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>¿Quiénes Somos?</title>
+    <title>¿Quiénes Somos? | Santana Pachano & Asociados</title>
+    <meta name="description" content="Conoce a Santana Pachano & Asociados, un equipo de especialistas en Derecho con la misión de proteger los intereses de sus clientes en República Dominicana." />
+    <meta name="author" content="Juanel Santana" />
+    <meta property="og:title" content="¿Quiénes Somos? | Santana Pachano & Asociados" />
+    <meta property="og:description" content="Conozca nuestro compromiso con la ética, responsabilidad y resultados en asesoría legal." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./img/spwhite.png" />
     <link rel="shortcut icon" type="image/png" href="./img/spwhite.png" />
+
+    <!-- Preconnects para rendimiento y fuentes -->
+    <link rel="preconnect" href="https://kit.fontawesome.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Estilos globales -->
     <link rel="stylesheet" href="./css/base.css" />
@@ -13,232 +25,7 @@
 
     <!-- Estilos específicos -->
     <link rel="stylesheet" href="./css/style.css" />
-    <style>
-        /* Shared aesthetics */
-        .section-padding {
-            padding: 8vh 4vw;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: var(--step-title);
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-weight: bold;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .bg-alt {
-            background-color: #f0f2f5;
-        }
-
-        /* Hero */
-        .hero-section {
-            background:
-                linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7)),
-                url("./img/fondo2.png");
-            background-size: cover;
-            background-position: center;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 12vh 4vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 15px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #ddd;
-        }
-
-        /* Intro & Values */
-        .intro-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-            font-size: 1.1rem;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .intro-content p {
-            margin-bottom: 1rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 2rem;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            border-top: 4px solid var(--accent-color);
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .value-card i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .value-card h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .value-card p {
-            color: #666;
-        }
-
-        /* Goals Section - Split layout */
-        .goals-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .text-block {
-            flex: 1;
-        }
-
-        .text-block p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--text-color-alt);
-        }
-
-        .image-block {
-            flex: 1;
-        }
-
-        .goal-img {
-            width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
-            height: auto;
-            min-height: 300px;
-            object-fit: cover;
-        }
-
-        /* Mission & Vision */
-        .mv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .mv-card {
-            background: #fff;
-            padding: 3rem 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mv-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--primary-color);
-        }
-
-        .mv-card:nth-child(2)::before {
-            background: var(--accent-color);
-        }
-
-        .mv-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .mv-card p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-        }
-
-        /* Solutions CTA */
-        .cta-text {
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            font-size: 1.2rem;
-            color: #555;
-        }
-
-        .contact-btn-large {
-            padding: 15px 40px;
-            background-color: var(--primary-color);
-            color: white;
-            /* Contrast color for button text */
-            border: none;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .contact-btn-large:hover {
-            background-color: var(--secondary-color);
-        }
-
-        @media (max-width: 768px) {
-            .goals-content {
-                flex-direction: column;
-            }
-
-            .image-block {
-                width: 100%;
-            }
-
-            .goal-img {
-                min-height: 200px;
-            }
-
-            .section-padding {
-                padding: 6vh 4vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/pages.css" />
 
     <script src="https://kit.fontawesome.com/d981a904f0.js" crossorigin="anonymous"></script>
 </head>
@@ -266,21 +53,21 @@
             <span class="line3__bars-menu"></span>
         </div>
     </header>
-    <script src="./js/menu.js"></script>
+    <script src="./js/menu.js" defer></script>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
+        <section class="page-hero-section quienes-somos-hero">
+            <div class="page-hero-content">
                 <h1>Santana Pachano & Asociados</h1>
                 <p>Especialistas en Derecho Laboral y Servicios Legales Integrales</p>
             </div>
         </section>
 
         <!-- Intro & Values Section -->
-        <section class="intro-section section-padding">
-            <div class="container">
-                <h2 class="section-title">¿Quiénes Somos?</h2>
+        <section class="intro-section page-section-padding">
+            <div class="page-container">
+                <h2 class="page-section-title">¿Quiénes Somos?</h2>
                 <div class="intro-content">
                     <p>En Santana Pachano & Asociados ofrecemos asesoría integral en derecho civil, laboral y familiar.
                         Defendemos los derechos de trabajadores, empresas y particulares con ética, responsabilidad y
@@ -310,18 +97,18 @@
         </section>
 
         <!-- Goals Section -->
-        <section class="goals-section section-padding bg-alt">
-            <div class="container">
+        <section class="goals-section page-section-padding page-bg-alt">
+            <div class="page-container">
                 <div class="goals-content">
-                    <div class="text-block">
-                        <h2 class="section-title text-left">Su tranquilidad legal, nuestra meta</h2>
+                    <div class="goals-text-block">
+                        <h2 class="page-section-title text-left">Su tranquilidad legal, nuestra meta</h2>
                         <p>Confíe en profesionales que entienden su situación y trabajan por sus derechos con
                             determinación.</p>
                         <p>Ya sea en conflictos laborales, disputas civiles o temas de familia, nuestro objetivo
                             principal es brindarle la seguridad y el respaldo jurídico que necesita para avanzar con
                             confianza.</p>
                     </div>
-                    <div class="image-block">
+                    <div class="goals-image-block">
                         <!-- Placeholder for goal/team image -->
                         <img src="./img/mujerjusticia.png" alt="Imagen representativa de nuestra meta"
                             class="goal-img" />
@@ -331,9 +118,9 @@
         </section>
 
         <!-- Mission & Vision Section -->
-        <section class="mission-vision section-padding">
-            <div class="container">
-                <h2 class="section-title">En el corazón de nuestro equipo</h2>
+        <section class="mission-vision page-section-padding">
+            <div class="page-container">
+                <h2 class="page-section-title">En el corazón de nuestro equipo</h2>
                 <div class="mv-grid">
                     <div class="mv-card">
                         <h3>Nuestra Misión</h3>
@@ -350,9 +137,9 @@
         </section>
 
         <!-- Solutions/CTA Section -->
-        <section class="solutions-section section-padding bg-alt">
-            <div class="container text-center">
-                <h2 class="section-title">Soluciones al alcance de tus manos</h2>
+        <section class="solutions-section page-section-padding page-bg-alt">
+            <div class="page-container text-center">
+                <h2 class="page-section-title">Soluciones al alcance de tus manos</h2>
                 <p class="cta-text">Estamos a la altura y en capacidad de responder a sus intereses. Nada volverá a ser
                     igual. Consúltenos hoy, marcaremos la diferencia en los resultados.</p>
                 <button class="contact-btn-large" onclick="location.href='./form.html'">Contáctanos</button>
@@ -389,7 +176,11 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-phone"></i>
-                    <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                    <p><span>Tel. Oficina</span> (809) 896-3553</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <p><span>Móvil / WA</span> +1 (829) 727-8527</p>
                 </div>
                 <div>
                     <i class="fa-solid fa-envelope"></i>

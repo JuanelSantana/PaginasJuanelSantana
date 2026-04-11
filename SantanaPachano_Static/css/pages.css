@@ -1,0 +1,94 @@
+/* pages.css - Estilos específicos para páginas internas */
+
+/* Clases Generales */
+.page-section-padding { padding: 8vh 4vw; }
+.page-container { max-width: 1100px; margin: 0 auto; }
+.page-container-large { max-width: 1200px; margin: 0 auto; }
+.page-section-title { text-align: center; font-size: var(--step-title); color: var(--primary-color); margin-bottom: 2rem; font-weight: bold; }
+.page-bg-alt { background-color: #f0f2f5; }
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+
+/* Hero Global */
+.page-hero-section {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 12vh 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-hero-content h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 15px; }
+.page-hero-content p { font-size: 1.1rem; color: #ddd; max-width: 700px; margin: 0 auto; }
+
+/* -------- ¿Quiénes Somos? -------- */
+.quienes-somos-hero {
+    background: linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7)), url("../img/fondo2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.intro-content { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #444; line-height: 1.6; }
+.intro-content p { margin-bottom: 1rem; }
+
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 2rem; }
+.value-card { text-align: center; padding: 2.5rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-top: 4px solid var(--accent-color); }
+.value-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(10, 30, 51, 0.08); }
+.value-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem; }
+.value-card h3 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; }
+.value-card p { color: #666; }
+
+.goals-content { display: flex; align-items: center; gap: 40px; }
+.goals-text-block { flex: 1; }
+.goals-text-block p { margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.6; color: var(--text-color-alt); }
+.goals-image-block { flex: 1; }
+.goal-img { width: 100%; border-radius: var(--border-radius); box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1); height: auto; min-height: 300px; object-fit: cover; }
+
+.mv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.mv-card { background: #fff; padding: 3rem 2rem; border-radius: var(--border-radius); text-align: center; border: 1px solid rgba(0, 0, 0, 0.05); position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.mv-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(10, 30, 51, 0.06); }
+.mv-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--primary-color); }
+.mv-card:nth-child(2)::before { background: var(--accent-color); }
+.mv-card h3 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1rem; font-weight: bold; }
+.mv-card p { font-size: 1.1rem; line-height: 1.7; color: #555; }
+
+.cta-text { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.2rem; color: #555; }
+.contact-btn-large { padding: 15px 40px; background-color: var(--primary-color); color: white; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: 500; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: var(--font-family-alt); }
+.contact-btn-large:hover { background-color: var(--secondary-color); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(10, 30, 51, 0.2); }
+
+@media (max-width: 768px) {
+    .goals-content { flex-direction: column; }
+    .goals-image-block { width: 100%; }
+    .goal-img { min-height: 200px; }
+    .page-section-padding { padding: 6vh 4vw; }
+}
+
+/* -------- ¿Qué Hacemos? -------- */
+.que-hacemos-hero {
+    background: linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7));
+}
+
+.services-overview { background-color: #fff; }
+.qh-services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.qh-service-item { background: #f8f9fa; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03); text-align: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; border: 1px solid rgba(0, 0, 0, 0.03); }
+.qh-service-item:hover { transform: translateY(-6px); box-shadow: 0 15px 25px rgba(10, 30, 51, 0.08); background: white; border-color: rgba(185, 147, 90, 0.4); }
+.qh-service-img { width: 100%; height: 160px; object-fit: cover; background-color: #e2e8f0; border-radius: 6px; margin-bottom: 1rem; }
+.qh-service-item h3 { color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: bold; }
+.qh-service-item p { color: #666; line-height: 1.5; font-size: 0.9rem; }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; justify-items: center; }
+.portfolio-category { background: white; padding: 2.5rem 2rem; border-radius: 12px; width: 100%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); transition: all 0.4s ease; border-top: 3px solid transparent; }
+.portfolio-category:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(10, 30, 51, 0.06); border-top: 3px solid var(--accent-color); }
+.portfolio-category h3 { color: var(--secondary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; justify-content: center; }
+.portfolio-category h3 i { color: var(--accent-color); }
+.portfolio-category ul { list-style: none; padding: 0; text-align: left; }
+.portfolio-category li { position: relative; padding-left: 20px; margin-bottom: 10px; line-height: 1.5; color: var(--text-color-alt); font-size: 0.95rem; }
+.portfolio-category li::before { content: "•"; color: var(--accent-color); font-weight: bold; position: absolute; left: 0; }
+
+@media (max-width: 768px) {
+    .qh-services-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .portfolio-grid { grid-template-columns: 1fr; }
+}

@@ -4,8 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>¿Qué Hacemos?</title>
+    <title>¿Qué Hacemos? | Santana Pachano & Asociados</title>
+    <meta name="description" content="Descubra la amplia cartera de servicios legales que ofrece Santana Pachano & Asociados: Derecho Laboral, Casos Civiles, Familiares y más." />
+    <meta name="author" content="Juanel Santana" />
+    <meta property="og:title" content="¿Qué Hacemos? | Santana Pachano & Asociados" />
+    <meta property="og:description" content="Servicios legales integrales para recuperar recursos y proteger sus intereses." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./img/spwhite.png" />
     <link rel="shortcut icon" type="image/png" href="./img/spwhite.png" />
+
+    <!-- Preconnects para rendimiento y fuentes -->
+    <link rel="preconnect" href="https://kit.fontawesome.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Estilos globales -->
     <link rel="stylesheet" href="./css/base.css" />
@@ -13,201 +25,7 @@
 
     <!-- Estilos específicos -->
     <link rel="stylesheet" href="./css/style.css" />
-    <style>
-        /* Styling variables inherited from base.css / style.css */
-
-        .section-padding {
-            padding: 6vh 4vw;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: var(--step-title);
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-weight: bold;
-        }
-
-        .bg-alt {
-            background-color: #f0f2f5;
-            /* Light gray/blue tint instead of white */
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background:
-                linear-gradient(rgba(10, 30, 51, 0.85), rgba(10, 30, 51, 0.7)),
-                url("");
-            /* Placeholder for hero image */
-            background-size: cover;
-            background-position: center;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 12vh 4vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: 15px;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #ddd;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Services Grid - Made smaller and more compact */
-        .services-overview {
-            background-color: #fff;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill,
-                    minmax(250px, 1fr));
-            /* Smaller cards */
-            gap: 20px;
-            max-width: 1000px;
-            /* Constrain width to keep it compact */
-            margin: 0 auto;
-        }
-
-        .service-item {
-            background: #f8f9fa;
-            /* Slight off-white background */
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                background-color 0.3s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .service-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            background: white;
-            border-color: var(--accent-color);
-        }
-
-        .service-img {
-            width: 100%;
-            height: 160px;
-            /* Reduced height */
-            object-fit: cover;
-            background-color: #e2e8f0;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-        }
-
-        .service-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
-            /* Smaller font */
-            font-weight: bold;
-        }
-
-        .service-item p {
-            color: #666;
-            line-height: 1.5;
-            font-size: 0.9rem;
-            /* Smaller font */
-        }
-
-        /* Portfolio Section - Centered */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2,
-                    1fr);
-            /* 2 columns for better centering */
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-            justify-items: center;
-            /* Center items if they don't fill */
-        }
-
-        .portfolio-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            width: 100%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        .portfolio-category h3 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-            /* Center header */
-        }
-
-        .portfolio-category h3 i {
-            color: var(--accent-color);
-        }
-
-        .portfolio-category ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            /* Keep list left aligned for readability */
-        }
-
-        .portfolio-category li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            line-height: 1.5;
-            color: var(--text-color-alt);
-            font-size: 0.95rem;
-        }
-
-        .portfolio-category li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Responsive overrides */
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-padding {
-                padding: 5vh 4vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/pages.css" />
 
     <script src="https://kit.fontawesome.com/d981a904f0.js" crossorigin="anonymous"></script>
 </head>
@@ -235,63 +53,63 @@
             <span class="line3__bars-menu"></span>
         </div>
     </header>
-    <script src="./js/menu.js"></script>
+    <script src="./js/menu.js" defer></script>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
+        <section class="page-hero-section que-hacemos-hero">
+            <div class="page-hero-content">
                 <h1>Te llevamos al siguiente nivel</h1>
                 <p>Recuperamos recursos, protegemos tus intereses y ofrecemos soluciones legales a tu medida.</p>
             </div>
         </section>
 
         <!-- Main Services Grid -->
-        <section class="services-overview section-padding">
-            <div class="container">
-                <h2 class="section-title">Nuestra amplia cartera de servicios legales</h2>
-                <div class="services-grid">
+        <section class="services-overview page-section-padding">
+            <div class="page-container-large">
+                <h2 class="page-section-title">Nuestra amplia cartera de servicios legales</h2>
+                <div class="qh-services-grid">
                     <!-- Service 1: Derecho Laboral -->
-                    <div class="service-item">
-                        <img src="./img/derecho_laboral.png" alt="Derecho Laboral" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/derecho_laboral.png" alt="Derecho Laboral" class="qh-service-img" />
                         <h3>Derecho Laboral</h3>
                         <p>Defensa de derechos de empleados y empleadores. Asesoría en contratos, despidos, prestaciones
                             y conflictos laborales.</p>
                     </div>
 
                     <!-- Service 2: Casos Civiles -->
-                    <div class="service-item">
-                        <img src="./img/casos_civiles.png" alt="Casos Civiles" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/casos_civiles.png" alt="Casos Civiles" class="qh-service-img" />
                         <h3>Casos Civiles</h3>
                         <p>Representación en disputas contractuales, reclamaciones de daños, herencias y procesos
                             judiciales civiles.</p>
                     </div>
 
                     <!-- Service 3: Casos de Familia -->
-                    <div class="service-item">
-                        <img src="./img/casos_familia.png" alt="Casos de Familia" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/casos_familia.png" alt="Casos de Familia" class="qh-service-img" />
                         <h3>Casos de Familia</h3>
                         <p>Orientación y defensa en temas de custodia, pensión, filiación, divorcio y adopciones.</p>
                     </div>
 
                     <!-- Service 4: Actos Notariales -->
-                    <div class="service-item">
-                        <img src="./img/actos_notariales.png" alt="Actos Notariales" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/actos_notariales.png" alt="Actos Notariales" class="qh-service-img" />
                         <h3>Actos Notariales</h3>
                         <p>Redacción, legalización y protocolización de documentos con validez jurídica garantizada.</p>
                     </div>
 
                     <!-- Service 5: Procesos de Visa -->
-                    <div class="service-item">
-                        <img src="./img/procesos_visa.png" alt="Procesos de Visa" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/procesos_visa.png" alt="Procesos de Visa" class="qh-service-img" />
                         <h3>Procesos de Visa</h3>
                         <p>Asistencia legal en procesos migratorios, visados y residencia en la República Dominicana y
                             el extranjero.</p>
                     </div>
 
                     <!-- Service 6: Registro de Compañías -->
-                    <div class="service-item">
-                        <img src="./img/registro_companias.png" alt="Registro de Compañías" class="service-img" />
+                    <div class="qh-service-item">
+                        <img src="./img/registro_companias.png" alt="Registro de Compañías" class="qh-service-img" />
                         <h3>Registro de Compañías</h3>
                         <p>Constitución de sociedades comerciales, redacción de estatutos y cumplimiento legal
                             empresarial.</p>
@@ -301,9 +119,9 @@
         </section>
 
         <!-- Portfolio Detailed Section -->
-        <section class="portfolio-section section-padding bg-alt">
-            <div class="container">
-                <h2 class="section-title">Portafolio de servicios</h2>
+        <section class="portfolio-section page-section-padding page-bg-alt">
+            <div class="page-container">
+                <h2 class="page-section-title">Portafolio de servicios</h2>
 
                 <div class="portfolio-grid">
                     <div class="portfolio-category">
@@ -386,7 +204,11 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-phone"></i>
-                    <p><span>Teléfono</span> +1 (829) 727-8527</p>
+                    <p><span>Tel. Oficina</span> (809) 896-3553</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <p><span>Móvil / WA</span> +1 (829) 727-8527</p>
                 </div>
                 <div>
                     <i class="fa-solid fa-envelope"></i>
